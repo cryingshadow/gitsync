@@ -29,7 +29,8 @@ public class Main {
             process = new ProcessBuilder(
                 "git",
                 "pull",
-                "--rebase"
+                "--rebase",
+                "-X ours"
             ).inheritIO().directory(directory).redirectOutput(pullFile).redirectError(pullFile).start();
             process.waitFor(60, TimeUnit.SECONDS);
             try (BufferedReader reader = new BufferedReader(new FileReader(resetFile))) {
